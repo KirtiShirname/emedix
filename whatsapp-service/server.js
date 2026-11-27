@@ -43,4 +43,6 @@ app.post("/send-direct", async (req, res) => {
   } catch (e) { res.status(500).send(String(e)); }
 });
 
+app.get("/", (req, res) => res.json({ ready, number: ready ? client.info.wid.user : null }));
+
 app.listen(3000, "127.0.0.1", () => console.log("WA service on :3000"));
